@@ -1,17 +1,20 @@
-import { Equal, Expect } from "../helpers/type-utils";
+import { Equal, Expect } from '../helpers/type-utils'
 
 const makeQuery = (
   url: string,
   opts?: {
-    method?: string;
+    method?: string
     headers?: {
-      [key: string]: string;
-    };
-    body?: string;
-  },
-) => {};
+      [key: string]: string
+    }
+    body?: string
+  }
+) => {}
 
-type MakeQueryParameters = unknown;
+/**
+ * Hãy sửa đổi sao cho MakeQueryParameters sẽ nhận kiểu của các tham số truyền vào hàm makeQuery.
+ */
+type MakeQueryParameters = Parameters<typeof makeQuery>
 
 type tests = [
   Expect<
@@ -20,13 +23,13 @@ type tests = [
       [
         url: string,
         opts?: {
-          method?: string;
+          method?: string
           headers?: {
-            [key: string]: string;
-          };
-          body?: string;
-        },
+            [key: string]: string
+          }
+          body?: string
+        }
       ]
     >
-  >,
-];
+  >
+]

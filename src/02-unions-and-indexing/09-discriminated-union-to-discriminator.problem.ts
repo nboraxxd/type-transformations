@@ -1,19 +1,22 @@
-import { Equal, Expect } from "../helpers/type-utils";
+import { Equal, Expect } from '../helpers/type-utils'
 
 export type Event =
   | {
-      type: "click";
-      event: MouseEvent;
+      type: 'click'
+      event: MouseEvent
     }
   | {
-      type: "focus";
-      event: FocusEvent;
+      type: 'focus'
+      event: FocusEvent
     }
   | {
-      type: "keydown";
-      event: KeyboardEvent;
-    };
+      type: 'keydown'
+      event: KeyboardEvent
+    }
 
-type EventType = unknown;
+/**
+ * Hãy sửa đổi sao cho EventType sẽ nhận giá trị là union các chuỗi "click", "focus", "keydown" từ các thành phần của union Event.
+ */
+type EventType = Event['type']
 
-type tests = [Expect<Equal<EventType, "click" | "focus" | "keydown">>];
+type tests = [Expect<Equal<EventType, 'click' | 'focus' | 'keydown'>>]
