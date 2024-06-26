@@ -1,17 +1,22 @@
-import { Equal, Expect } from "../helpers/type-utils";
+import { Equal, Expect } from '../helpers/type-utils'
 
-type CreateDataShape<TData, TError> = {
-  data: TData;
-  error: TError;
-};
+/**
+ * Định nghĩa một kiểu generic CreateDataShape sao cho nó nhận hai kiểu tham số TData và TError và tạo ra một object với hai thuộc tính:
+ *  data có kiểu TData.
+ *  error có kiểu TError, khi TError generic không được truyền thì giá trị mặc định của nó sẽ là undefined.
+ */
+type CreateDataShape<TData, TError = undefined> = {
+  data: TData
+  error: TError
+}
 
 type tests = [
   Expect<
     Equal<
       CreateDataShape<string>,
       {
-        data: string;
-        error: undefined;
+        data: string
+        error: undefined
       }
     >
   >,
@@ -19,9 +24,9 @@ type tests = [
     Equal<
       CreateDataShape<boolean, SyntaxError>,
       {
-        data: boolean;
-        error: SyntaxError;
+        data: boolean
+        error: SyntaxError
       }
     >
-  >,
-];
+  >
+]
