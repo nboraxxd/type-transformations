@@ -11,11 +11,11 @@ export const fakeDataDefaults = {
 /**
  * Hãy sửa đổi sao cho các kiểu dữ liệu StringType, IntType, FloatType, BooleanType, và IDType sẽ nhận giá trị tương ứng từ đối tượng fakeDataDefaults.
  */
-export type StringType = (typeof fakeDataDefaults)['String']
-export type IntType = (typeof fakeDataDefaults)['Int']
-export type FloatType = (typeof fakeDataDefaults)['Float']
-export type BooleanType = (typeof fakeDataDefaults)['Boolean']
-export type IDType = (typeof fakeDataDefaults)['ID']
+export type StringType = unknown;
+export type IntType = unknown;
+export type FloatType = unknown;
+export type BooleanType = unknown;
+export type IDType = unknown;
 
 type tests = [
   Expect<Equal<StringType, string>>,

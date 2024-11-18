@@ -17,7 +17,7 @@ export type Event =
 /**
  * Hãy sửa đổi sao cho NonKeyDownEvents sẽ nhận đúng kiểu dữ liệu của các sự kiện không phải là keydown trong union Event.
  */
-type NonKeyDownEvents = Exclude<Event, { type: 'keydown' }>
+type NonKeyDownEvents = unknown;
 
 type tests = [
   Expect<Equal<NonKeyDownEvents, { type: 'click'; event: MouseEvent } | { type: 'focus'; event: FocusEvent }>>

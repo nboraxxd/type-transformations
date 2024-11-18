@@ -16,8 +16,6 @@ const getServerSideProps = async () => {
  *  Nếu T không phù hợp với định dạng này, kiểu trả về là never.
  */
 // type InferPropsFromServerSideFunction<T> = T extends () => Promise<{ props: infer PropsValueT }> ? PropsValueT : never
-type InferPropsFromServerSideFunction<T> = T extends () => Promise<Record<'props', infer PropsValueT>>
-  ? PropsValueT
-  : never
+type InferPropsFromServerSideFunction = unknown;
 
 type tests = [Expect<Equal<InferPropsFromServerSideFunction<typeof getServerSideProps>, { json: { title: string } }>>]

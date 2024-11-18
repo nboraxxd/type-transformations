@@ -14,7 +14,7 @@ const makeQuery = (
 /**
  * Hãy sửa đổi sao cho MakeQueryParameters sẽ nhận kiểu của các tham số truyền vào hàm makeQuery.
  */
-type MakeQueryParameters = Parameters<typeof makeQuery>
+type MakeQueryParameters = unknown
 
 type tests = [
   Expect<

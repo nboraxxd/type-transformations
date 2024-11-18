@@ -5,10 +5,10 @@ import { Equal, Expect } from '../helpers/type-utils'
  *  data có kiểu TData.
  *  error có kiểu TError.
  */
-type CreateDataShape<D, E> = {
-  data: D
-  error: E
-}
+type CreateDataShape = {
+  data: unknown;
+  error: unknown;
+};
 
 type tests = [
   Expect<

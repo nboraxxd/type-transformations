@@ -7,7 +7,7 @@ type Event = `log_in` | 'log_out' | 'sign_up'
  *  key được định nghĩa bằng cách chuyển đổi các giá trị của Event thành chữ in hoa (uppercase)
  *  value là string
  */
-type ObjectOfKeys = Record<Uppercase<Event>, string>
+type ObjectOfKeys = unknown;
 
 type tests = [
   Expect<

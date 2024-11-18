@@ -17,6 +17,6 @@ export type Event =
 /**
  * Hãy sửa đổi sao cho EventType sẽ nhận giá trị là union các chuỗi "click", "focus", "keydown" từ các thành phần của union Event.
  */
-type EventType = Event['type']
+type EventType = unknown;
 
 type tests = [Expect<Equal<EventType, 'click' | 'focus' | 'keydown'>>]

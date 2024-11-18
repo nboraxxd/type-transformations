@@ -5,10 +5,10 @@ import { Equal, Expect } from '../helpers/type-utils'
  *  data có kiểu TData.
  *  error có kiểu TError, khi TError generic không được truyền thì giá trị mặc định của nó sẽ là undefined.
  */
-type CreateDataShape<TData, TError = undefined> = {
-  data: TData
-  error: TError
-}
+type CreateDataShape<TData, TError> = {
+  data: TData;
+  error: TError;
+};
 
 type tests = [
   Expect<

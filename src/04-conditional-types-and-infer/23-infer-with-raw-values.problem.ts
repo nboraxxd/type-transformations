@@ -5,8 +5,7 @@ import { Equal, Expect } from '../helpers/type-utils'
  *  Nếu generic là một object có key là data, thì kiểu trả về là value của data.
  *  Nếu generic không phải là một object có key data, thì kiểu trả về là never.
  */
-// type GetDataValue<T> = T extends { data: any } ? T['data'] : never
-type GetDataValue<T> = T extends { data: infer TValue } ? TValue : never
+type GetDataValue<T> = unknown;
 
 type tests = [
   Expect<Equal<GetDataValue<{ data: 'hello' }>, 'hello'>>,

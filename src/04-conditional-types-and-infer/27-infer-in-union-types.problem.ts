@@ -25,12 +25,7 @@ const parser3 = {
 //   ? ReturnT
 //   : never
 
-type GetParserResult<T> = T extends
-  | Record<'parse', () => infer ReturnT>
-  | Record<'extract', () => infer ReturnT>
-  | (() => infer ReturnT)
-  ? ReturnT
-  : never
+type GetParserResult<T> = unknown;
 
 type tests = [
   Expect<Equal<GetParserResult<typeof parser1>, number>>,

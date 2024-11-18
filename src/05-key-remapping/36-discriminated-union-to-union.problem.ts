@@ -21,8 +21,6 @@ type Fruit =
  * Ví dụ:
  * Nếu name là "apple" và color là "red", chuỗi tương ứng trong TransformedFruit sẽ là "apple:red".
  */
-type TransformedFruit = {
-  [F in Fruit as F['name']]: `${F['name']}:${F['color']}`
-}[Fruit['name']]
+type TransformedFruit = unknown;
 
 type tests = [Expect<Equal<TransformedFruit, 'apple:red' | 'banana:yellow' | 'orange:orange'>>]

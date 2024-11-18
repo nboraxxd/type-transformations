@@ -5,7 +5,7 @@ import { Equal, Expect } from '../helpers/type-utils'
  *  Nếu giá trị đầu vào là "hello", thì giá trị trả về sẽ là "goodbye".
  *  Nếu giá trị đầu vào là "goodbye", thì giá trị trả về sẽ là "hello".
  */
-type YouSayGoodbyeAndISayHello<T> = T extends 'hello' ? 'goodbye' : 'hello'
+type YouSayGoodbyeAndISayHello = unknown;
 
 type tests = [
   Expect<Equal<YouSayGoodbyeAndISayHello<'hello'>, 'goodbye'>>,

@@ -11,24 +11,24 @@
 
 type A =
   | {
-      type: 'a'
-      a: string
+      type: "a";
+      a: string;
     }
   | {
-      type: 'b'
-      b: string
+      type: "b";
+      b: string;
     }
   | {
-      type: 'c'
-      c: string
-    } // discriminated union
+      type: "c";
+      c: string;
+    };
 
-type B = 'a' | 'b' | 'c' // union
+type B = "a" | "b" | "c";
 
 enum C {
-  A = 'a',
-  B = 'b',
-  C = 'c',
-} // enum
+  A = "a",
+  B = "b",
+  C = "c",
+}
 
-export {}
+export {};
