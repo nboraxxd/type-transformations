@@ -17,15 +17,7 @@ const parser3 = {
  *  Nếu T là một object có method extract và extract return về WhatEver, thì GetParserResult<T> sẽ là WhatEver.
  *  Nếu không phù hợp với các điều kiện trên, kiểu trả về là never.
  */
-// type GetParserResult<T> = T extends Record<'parse', () => infer ReturnT>
-//   ? ReturnT
-//   : T extends Record<'extract', () => infer ReturnT>
-//   ? ReturnT
-//   : T extends () => infer ReturnT
-//   ? ReturnT
-//   : never
-
-type GetParserResult<T> = unknown;
+type GetParserResult<T> = unknown
 
 type tests = [
   Expect<Equal<GetParserResult<typeof parser1>, number>>,

@@ -7,10 +7,14 @@ interface Attributes {
 }
 
 /**
- * How do we create a type helper that represents a union
- * of all possible combinations of Attributes?
+ * Tạo "type helper" MutuallyExclusive<T>, để biến T (1 object bất kỳ) thành một union type.
+ * Các member trong union type là các object có dạng là các property { key: value } của object T.
+ *
+ * Ví dụ:
+ * Nếu Example có type là { name: string, age: number }.
+ * Thì type MutuallyExclusive<Example> sẽ có dạng { name: string } | { age: number }
  */
-type MutuallyExclusive<T> = unknown;
+type MutuallyExclusive<T> = unknown
 
 type ExclusiveAttributes = MutuallyExclusive<Attributes>
 

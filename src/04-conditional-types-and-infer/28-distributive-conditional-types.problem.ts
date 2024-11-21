@@ -8,6 +8,6 @@ type Fruit = 'apple' | 'banana' | 'orange'
  *    Nếu T là "apple" hoặc "banana", thì AppleOrBanana sẽ là T.
  *    Nếu không, AppleOrBanana sẽ là never.
  */
-type GetParserResult<T> = unknown;
+type AppleOrBanana = Fruit extends 'apple' | 'banana' ? Fruit : never
 
 type tests = [Expect<Equal<AppleOrBanana, 'apple' | 'banana'>>]
