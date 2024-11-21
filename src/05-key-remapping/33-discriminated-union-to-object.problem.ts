@@ -16,7 +16,9 @@ type Route =
  * Định nghĩa kiểu RoutesObject sao cho nó là một object với các key là các value của key route trong Route
  * Value của mỗi key là value của key search tương ứng từ Route.
  */
-type RoutesObject = unknown;
+type RoutesObject = {
+  [K in Route as K['route']]: K['search']
+}
 
 type tests = [
   Expect<

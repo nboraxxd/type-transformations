@@ -2,7 +2,7 @@
  * Định nghĩa một kiểu generic Maybe sao cho nó chấp nhận các kiểu không phải là null hoặc undefined, và thêm null và undefined vào kiểu đó.
  * Đảm bảo rằng khi generic của Maybe là null hoặc undefined thì sẽ có lỗi biên dịch TypeScript.
  */
-export type Maybe<T> = T | null | undefined;
+export type Maybe<T extends {}> = T | null | undefined
 
 type tests = [
   // @ts-expect-error

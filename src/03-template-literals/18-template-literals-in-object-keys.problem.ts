@@ -7,7 +7,7 @@ type TemplateLiteralKey = `${'user' | 'post' | 'comment'}${'Id' | 'Name'}`
  *  key là một kiểu literal kết hợp giữa các chuỗi "user", "post", "comment" với các chuỗi "Id", "Name".
  *  value là string
  */
-type ObjectOfKeys = unknown;
+type ObjectOfKeys = Record<TemplateLiteralKey, string>
 
 type tests = [
   Expect<

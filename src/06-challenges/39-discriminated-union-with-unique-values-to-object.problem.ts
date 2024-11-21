@@ -22,7 +22,9 @@ type Route =
  * Với { route: '/about' }, kết quả trong RoutesObject sẽ là { '/about': never }.
  */
 
-type RoutesObject = unknown;
+type RoutesObject = {
+  [K in Route as K['route']]: K extends { search: infer S } ? S : never
+}
 
 type tests = [
   Expect<

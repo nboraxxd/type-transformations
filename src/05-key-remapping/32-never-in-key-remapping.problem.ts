@@ -12,7 +12,9 @@ interface Example {
  * Định nghĩa kiểu OnlyIdKeys<T>, T có type là Object
  * Nó chỉ giữ lại các key của T mà chứa chuỗi "id" hoặc "Id" bên trong tên của key đó, với value tương ứng.
  */
-type OnlyIdKeys<T> = unknown;
+type OnlyIdKeys<T> = {
+  [K in keyof T as Exclude<K, 'name' | 'age'>]: T[K]
+}
 
 type tests = [
   Expect<

@@ -2,7 +2,7 @@
  * Định nghĩa kiểu generic NonEmptyArray sao cho nó đại diện cho một mảng KHÔNG EMPTY của các giá trị kiểu T.
  * Ví dụ: Nếu generic của NonEmptyArray là number thì NonEmptyArray phải là array các number và KHÔNG ĐƯỢC empty
  */
-type NonEmptyArray = unknown;
+type NonEmptyArray<T> = [T, ...Array<T>]
 
 export const makeEnum = (values: NonEmptyArray<string>) => {}
 

@@ -7,7 +7,7 @@ type Filling = 'cheese' | 'ham' | 'salami'
 /**
  * Định nghĩa kiểu Sandwich sao cho nó đại diện cho tất cả các tổ hợp của BreadType và Filling theo mẫu ${BreadType} sandwich with ${Filling}.
  */
-type Sandwich = unknown;
+type Sandwich = `${BreadType} sandwich with ${Filling}`
 
 type tests = [
   Expect<

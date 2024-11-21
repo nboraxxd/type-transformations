@@ -7,7 +7,9 @@ type Route = '/' | '/about' | '/admin' | '/admin/users'
  * Với key và value trong `RoutesObject` đều là cùng là 1 member của `Route`.
  * Nếu key là '/about' thì value cũng là '/about',...
  */
-type RoutesObject = unknown;
+type RoutesObject = {
+  [K in Route]: K
+}
 
 type tests = [
   Expect<

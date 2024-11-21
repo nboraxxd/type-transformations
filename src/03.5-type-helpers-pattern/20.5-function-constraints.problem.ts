@@ -5,10 +5,10 @@ import { Equal, Expect } from '../helpers/type-utils'
  *  params có kiểu là các tham số của hàm T (sử dụng Parameters<T>).
  *  returnValue có kiểu là giá trị trả về của hàm T (sử dụng ReturnType<T>).
  */
-type GetParametersAndReturnType<T> = {
-  params: Parameters<T>;
-  returnValue: ReturnType<T>;
-};
+type GetParametersAndReturnType<T extends (...args: any) => any> = {
+  params: Parameters<T>
+  returnValue: ReturnType<T>
+}
 type tests = [
   Expect<Equal<GetParametersAndReturnType<() => string>, { params: []; returnValue: string }>>,
   Expect<Equal<GetParametersAndReturnType<(s: string) => void>, { params: [string]; returnValue: void }>>,

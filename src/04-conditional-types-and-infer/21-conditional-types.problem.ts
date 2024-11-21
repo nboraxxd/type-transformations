@@ -2,10 +2,10 @@ import { Equal, Expect } from '../helpers/type-utils'
 
 /**
  * Định nghĩa một kiểu generic YouSayGoodbyeAndISayHello sao cho nó hoạt động như sau:
- *  Nếu giá trị đầu vào là "hello", thì giá trị trả về sẽ là "goodbye".
- *  Nếu giá trị đầu vào là "goodbye", thì giá trị trả về sẽ là "hello".
+ *  Nếu generic truyền vào là "hello", thì `YouSayGoodbyeAndISayHello` sẽ có type là "goodbye".
+ *  Otherwise, `YouSayGoodbyeAndISayHello` sẽ có type là "hello".
  */
-type YouSayGoodbyeAndISayHello = unknown;
+type YouSayGoodbyeAndISayHello<T> = T extends 'hello' ? 'goodbye' : 'hello'
 
 type tests = [
   Expect<Equal<YouSayGoodbyeAndISayHello<'hello'>, 'goodbye'>>,

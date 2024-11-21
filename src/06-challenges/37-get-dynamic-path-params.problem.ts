@@ -13,7 +13,9 @@ type UserOrganisationPath = '/users/:id/organisations/:organisationId'
  * Với UserPath là "/users/:id", kiểu ExtractPathParams<UserPath> sẽ là { id: string }.
  * Với UserOrganisationPath là "/users/:id/organisations/:organisationId", kiểu ExtractPathParams<UserOrganisationPath> sẽ là { id: string; organisationId: string }.
  */
-type ExtractPathParams = unknown;
+type ExtractPathParams<T extends string> = {
+  [K in S.Split<T, '/'>[number] as K extends `:${infer P}` ? P : never]: string
+}
 
 type tests = [
   Expect<Equal<ExtractPathParams<UserPath>, { id: string }>>,
