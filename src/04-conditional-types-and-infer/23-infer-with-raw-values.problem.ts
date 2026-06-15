@@ -1,11 +1,6 @@
 import { Equal, Expect } from '../helpers/type-utils'
 
-/**
- * Định nghĩa một kiểu generic GetDataValue sao cho nó hoạt động như sau:
- *  Nếu generic là một object có key là data, thì kiểu trả về là value của data.
- *  Nếu generic không phải là một object có key data, thì kiểu trả về là never.
- */
-type GetDataValue<T> = unknown;
+type GetDataValue<T> = T extends { data: infer U } ? U : never
 
 type tests = [
   Expect<Equal<GetDataValue<{ data: 'hello' }>, 'hello'>>,
@@ -13,7 +8,7 @@ type tests = [
   Expect<Equal<GetDataValue<{ data: { name: 'hello'; age: 20 } }>, { name: 'hello'; age: 20 }>>,
   // Expect that if you pass in string, it
   // should return never
-  Expect<Equal<GetDataValue<string>, never>>
+  Expect<Equal<GetDataValue<string>, never>>,
 ]
 
 /**

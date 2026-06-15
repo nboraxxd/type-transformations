@@ -12,15 +12,15 @@ const parser3 = {
 
 /**
  * Định nghĩa kiểu GetParserResult<T> sao cho:
- *  Nếu T là một object có method parse và parse return về WhatEver, thì GetParserResult<T> sẽ là WhatEver.
- *  Nếu T là một function không có parameter và return về WhatEver, thì GetParserResult<T> sẽ là WhatEver.
- *  Nếu T là một object có method extract và extract return về WhatEver, thì GetParserResult<T> sẽ là WhatEver.
+ *  Nếu T là một object có method parse và parse return về Whatever, thì GetParserResult<T> sẽ là Whatever.
+ *  Nếu T là một function không có parameter và return về Whatever, thì GetParserResult<T> sẽ là Whatever.
+ *  Nếu T là một object có method extract và extract return về Whatever, thì GetParserResult<T> sẽ là Whatever.
  *  Nếu không phù hợp với các điều kiện trên, kiểu trả về là never.
  */
-type GetParserResult<T> = unknown
+type GetParserResult<T> = T extends { parse: () => infer R } | { extract: () => infer R } | (() => infer R) ? R : never
 
 type tests = [
   Expect<Equal<GetParserResult<typeof parser1>, number>>,
   Expect<Equal<GetParserResult<typeof parser2>, string>>,
-  Expect<Equal<GetParserResult<typeof parser3>, boolean>>
+  Expect<Equal<GetParserResult<typeof parser3>, boolean>>,
 ]

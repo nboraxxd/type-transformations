@@ -8,13 +8,15 @@ const makeQuery = (
       [key: string]: string
     }
     body?: string
-  }
+  },
 ) => {}
 
 /**
  * Hãy sửa đổi sao cho MakeQueryParameters sẽ nhận kiểu của các tham số truyền vào hàm makeQuery.
  */
-type MakeQueryParameters = unknown
+type MakeQuery = typeof makeQuery
+
+type MakeQueryParameters = Parameters<MakeQuery>
 
 type tests = [
   Expect<
@@ -28,8 +30,8 @@ type tests = [
             [key: string]: string
           }
           body?: string
-        }
+        },
       ]
     >
-  >
+  >,
 ]

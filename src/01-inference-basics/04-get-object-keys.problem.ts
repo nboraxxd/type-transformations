@@ -13,9 +13,11 @@ const testingFrameworks = {
 }
 
 /**
- * Hãy sửa đổi sao cho TestingFramework sẽ nhận một kiểu tương ứng với các khóa của đối tượng testingFrameworks.
+ * Hãy sửa đổi sao cho TestingFramework sẽ nhận một kiểu tương ứng với các key của object testingFrameworks.
  * Tức là TestingFramework phải bằng "vitest" | "jest" | "mocha".
  */
-type TestingFramework = unknown;
+type TestingFrameworks = typeof testingFrameworks
+
+type TestingFramework = keyof TestingFrameworks
 
 type tests = [Expect<Equal<TestingFramework, 'vitest' | 'jest' | 'mocha'>>]

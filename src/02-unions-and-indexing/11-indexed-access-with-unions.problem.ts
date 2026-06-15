@@ -12,6 +12,12 @@ export const programModeEnumMap = {
 /**
  * Định nghĩa kiểu IndividualProgram sao cho nó đại diện cho một trong các giá trị "1on1", "selfDirected", "planned1on1", hoặc "plannedSelfDirected" từ programModeEnumMap.
  */
-export type IndividualProgram = unknown;
+type ProgramModeEnumMap = typeof programModeEnumMap
+// export type IndividualProgram = Exclude<ProgramModeEnumMap[keyof ProgramModeEnumMap], 'group' | 'announcement'>
+export type IndividualProgram = ProgramModeEnumMap[
+  | 'ONE_ON_ONE'
+  | 'SELF_DIRECTED'
+  | 'PLANNED_ONE_ON_ONE'
+  | 'PLANNED_SELF_DIRECTED']
 
 type tests = [Expect<Equal<IndividualProgram, '1on1' | 'selfDirected' | 'planned1on1' | 'plannedSelfDirected'>>]

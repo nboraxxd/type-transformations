@@ -10,7 +10,7 @@ interface Attributes {
  * Định nghĩa type AttributeGetters sao cho nó là một object với các key giống như trong interface Attributes
  * value của mỗi key là một function return về kiểu là value của các key từ Attributes.
  */
-type AttributeGetters = unknown;
+type AttributeGetters = { [R in keyof Attributes]: () => Attributes[R] }
 
 type tests = [
   Expect<
@@ -22,5 +22,5 @@ type tests = [
         age: () => number
       }
     >
-  >
+  >,
 ]

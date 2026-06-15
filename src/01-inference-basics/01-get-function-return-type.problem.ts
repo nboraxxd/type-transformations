@@ -7,6 +7,7 @@ const myFunc = () => {
 /**
  * Hãy sửa đổi sao cho MyFuncReturn sẽ nhận kiểu dữ liệu trả về của hàm myFunc.
  */
-type MyFuncReturn = unknown;
+type MyFunc = typeof myFunc
+type MyFuncReturn = ReturnType<MyFunc>
 
 type tests = [Expect<Equal<MyFuncReturn, string>>]

@@ -15,8 +15,8 @@ export type Event =
     }
 
 /**
- * Hãy sửa đổi đoạn mã trên sao cho ClickEvent sẽ nhận đúng kiểu dữ liệu của sự kiện click trong union Event.
+ * Hãy sửa đổi đoạn code trên sao cho ClickEvent sẽ nhận đúng kiểu dữ liệu của click event trong union Event.
  */
-type ClickEvent = unknown;
+type ClickEvent = Extract<Event, { type: 'click' }>
 
 type tests = [Expect<Equal<ClickEvent, { type: 'click'; event: MouseEvent }>>]

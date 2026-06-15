@@ -10,6 +10,6 @@ interface FruitMap {
  * Hoàn thành kiểu TransformedFruit sao cho nó trở thành union type của các chuỗi định dạng "fruit:color"
  * dựa trên các cặp key-value trong interface FruitMap.
  */
-type TransformedFruit = unknown;
+type TransformedFruit = { [K in keyof FruitMap]: `${K}:${FruitMap[K]}` }[keyof FruitMap]
 
 type tests = [Expect<Equal<TransformedFruit, 'apple:red' | 'banana:yellow' | 'orange:orange'>>]

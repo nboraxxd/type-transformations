@@ -11,7 +11,13 @@ interface Values {
  * mỗi tuple bao gồm key của một thuộc tính trong Values và value tương ứng của thuộc tính đó.
  */
 type ValuesAsUnionOfTuples = {
-  [K in keyof Values]: [K, Values[K]];
-};
+  [K in keyof Values]: [K, Values[K]]
+}[keyof Values]
+
+type Example = {
+  a: 1
+  b: 2
+  c: 3
+}
 
 type tests = [Expect<Equal<ValuesAsUnionOfTuples, ['email', string] | ['firstName', string] | ['lastName', string]>>]
